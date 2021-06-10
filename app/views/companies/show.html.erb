@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @company.name %>
-</p>
+</h1>
 
+<p>
+  <strong>Groups:</strong>
+  <ul>
+    <% @company.groups.each do |group| %>
+    <li><%= group.name %> | <%= link_to 'Show', group_path %></li>
+    <% end %>
+  </ul>
+</p>  
+
+<%= link_to 'Create Group', new_group_path %> |
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
