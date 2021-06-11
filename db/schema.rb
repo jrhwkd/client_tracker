@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_161638) do
+ActiveRecord::Schema.define(version: 2021_06_11_175251) do
 
   create_table "client_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.string "company"
+    t.integer "clienttype_id", null: false
+    t.integer "manager_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["clienttype_id"], name: "index_clients_on_clienttype_id"
+    t.index ["manager_id"], name: "index_clients_on_manager_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -44,6 +58,8 @@ ActiveRecord::Schema.define(version: 2021_06_11_161638) do
     t.index ["group_id"], name: "index_managers_on_group_id"
   end
 
+  add_foreign_key "clients", "clienttypes"
+  add_foreign_key "clients", "managers"
   add_foreign_key "groups", "companies"
   add_foreign_key "managers", "companies"
   add_foreign_key "managers", "groups"

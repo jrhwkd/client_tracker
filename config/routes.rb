@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :clients
-  resources :managers
+  root "companies#index"
   
+  resources :clients
+
   resources :companies do
     resources :groups
   end
@@ -10,7 +11,9 @@ Rails.application.routes.draw do
     resources :managers
   end
 
-  root "companies#index"
+  resources :managers do
+    resources :clients
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
