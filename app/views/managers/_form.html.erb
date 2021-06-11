@@ -27,6 +27,7 @@
   </div>
 
   <div class="field">
+    <!-- once login implemented, make user company as the company -->
     <%= form.label :company_id %>
     <%= form.collection_select :company_id, Company.order(:name), :id, :name %>
   </div>
