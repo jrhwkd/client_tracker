@@ -41,14 +41,14 @@
     <%= form.text_field :company %>
   </div>
 
-  <div class="field">
-    <%= form.label :sector_id %>
-    <%= form.text_field :sector_id %>
+    <div class="field">
+    <%= form.label :sector_id, value ='Client Type' %>
+    <%= form.collection_select :sector_id, Sector.order(:name), :id, :name %>
   </div>
 
   <div class="field">
     <%= form.label :manager_id %>
-    <%= form.text_field :manager_id %>
+    <%= form.collection_select :manager_id, Manager.order(:name), :id, :name %>
   </div>
 
   <div class="actions">
