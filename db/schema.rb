@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_06_11_175251) do
-=======
 ActiveRecord::Schema.define(version: 2021_06_30_162412) do
->>>>>>> rollback
 
   create_table "client_types", force: :cascade do |t|
     t.string "name"
@@ -63,10 +59,6 @@ ActiveRecord::Schema.define(version: 2021_06_30_162412) do
     t.index ["group_id"], name: "index_managers_on_group_id"
   end
 
-<<<<<<< HEAD
-  add_foreign_key "clients", "clienttypes"
-  add_foreign_key "clients", "managers"
-=======
   create_table "sectors", force: :cascade do |t|
     t.string "client_type"
     t.datetime "created_at", precision: 6, null: false
@@ -75,7 +67,6 @@ ActiveRecord::Schema.define(version: 2021_06_30_162412) do
 
   add_foreign_key "clients", "managers"
   add_foreign_key "clients", "sectors"
->>>>>>> rollback
   add_foreign_key "groups", "companies"
   add_foreign_key "managers", "companies"
   add_foreign_key "managers", "groups"
