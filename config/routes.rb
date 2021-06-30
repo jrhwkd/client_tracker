@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "companies#index"
+  
   resources :sectors
   
   resources :clients
