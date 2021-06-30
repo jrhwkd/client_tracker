@@ -43,7 +43,7 @@
 
     <div class="field">
     <%= form.label :sector_id, value ='Client Type' %>
-    <%= form.collection_select :sector_id, Sector.order(:name), :id, :name %>
+    <%= form.collection_select :sector_id, Sector.order(:client_type), :id, :client_type %>
   </div>
 
   <div class="field">

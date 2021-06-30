@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<h1>
+  Client Info:
+</h1>
+
 <p>
   <strong>First name:</strong>
   <%= @client.first_name %>
@@ -32,13 +36,13 @@
 
 <p>
   <strong>Sector:</strong>
-  <%= @client.sector_id %>
+  <%= Sector.find(@client.sector_id).client_type %>
 </p>
 
 <p>
   <strong>Manager:</strong>
-  <%= @client.manager_id %>
+  <%= Manager.find(@client.manager_id).name %>
 </p>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Edit Client', edit_client_path(@client) %> |
+<%= link_to 'Back', "/managers/#{@client.manager_id}" %>
