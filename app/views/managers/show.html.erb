@@ -1,10 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-  <p>
-    <strong>Name:</strong>
-    <%= @manager.name %>
-  </p>
+<h1>
+  Manager Info:
+</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @manager.name %>
+</p>
 
   <p>
     <strong>Email:</strong>
@@ -26,6 +29,15 @@
   </ul>
 </p>  
 
+<p>
+  <strong>Clients:</strong>
+  <ul>
+    <% @manager.clients.each do |client| %>
+    <li><%= client.first_name %> <%= client.last_name %> | <%= link_to 'Show', client_path %></li>
+    <% end %>
+  </ul>
+</p>  
+
 <%= link_to 'New Client', new_client_path %> |
-<%= link_to 'Edit', edit_manager_path(@manager) %> |
+<%= link_to 'Edit Manager', edit_manager_path(@manager) %> |
 <%= link_to 'Back', "/groups/#{@manager.group_id}" %>

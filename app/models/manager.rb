@@ -3,5 +3,7 @@ class Manager < ApplicationRecord
   belongs_to :company
   has_many :clients
 
+  has_many :clients
+
   validates :name, presence: true
 end

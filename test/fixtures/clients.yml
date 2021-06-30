@@ -2,18 +2,36 @@
 
 one:
   first_name: MyString
+<<<<<<< HEAD
   last: 
   email: MyString
   phone: MyString
   company: MyString
   clienttype: one
+=======
+  last_name: MyString
+  email: MyString
+  phone: MyString
+  address: MyString
+  company: MyString
+  sector: one
+>>>>>>> rollback
   manager: one
 
 two:
   first_name: MyString
+<<<<<<< HEAD
   last: 
   email: MyString
   phone: MyString
   company: MyString
   clienttype: two
+=======
+  last_name: MyString
+  email: MyString
+  phone: MyString
+  address: MyString
+  company: MyString
+  sector: two
+>>>>>>> rollback
   manager: two

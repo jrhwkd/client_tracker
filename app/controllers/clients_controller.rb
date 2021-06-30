@@ -64,6 +64,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client).permit(:first_name, :last_name, :email, :phone, :company, :clienttype_id, :manager_id)
+      params.require(:client).permit(:first_name, :last_name, :email, :phone, :address, :company, :sector_id, :manager_id)
     end
 end
