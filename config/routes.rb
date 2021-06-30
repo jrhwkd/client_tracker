@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :communications
   root "companies#index"
   
   resources :sectors
+  resources :communications
   
-  resources :clients
+  resources :clients do
+    resources :communications
+  end
 
   resources :companies do
     resources :groups

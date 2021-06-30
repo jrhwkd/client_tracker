@@ -21,7 +21,8 @@ class CommunicationsController < ApplicationController
 
   # POST /communications or /communications.json
   def create
-    @communication = Communication.new(communication_params)
+    @client = Client.find(params[:client_id])
+    @communication = @client.communications.create(communication_params)
 
     respond_to do |format|
       if @communication.save
@@ -49,9 +50,10 @@ class CommunicationsController < ApplicationController
 
   # DELETE /communications/1 or /communications/1.json
   def destroy
+    @client = Client.find(params[:client_id])
     @communication.destroy
     respond_to do |format|
-      format.html { redirect_to communications_url, notice: "Communication was successfully destroyed." }
+      format.html { redirect_to communications_url, notice: "Communication was successfully destroyed." } # may need to change communications_url to client_url?
       format.json { head :no_content }
     end
   end
@@ -64,6 +66,6 @@ class CommunicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def communication_params
-      params.require(:communication).permit(:comment, :client_id)
+      params.require(:communication).permit(:comment, :manager, :client_id)
     end
 end

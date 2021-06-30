@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Date:</strong>
+  <%= @communication.created_at %>
+</p>
+
+<p>
   <strong>Comment:</strong>
   <%= @communication.comment %>
 </p>
 
 <p>
-  <strong>Client:</strong>
-  <%= @communication.client_id %>
+  <strong>Communication by:</strong>
+  <%= @communication.manager %>
 </p>
 
-<%= link_to 'Edit', edit_communication_path(@communication) %> |
-<%= link_to 'Back', communications_path %>
+<%= link_to 'Edit Communication', edit_communication_path(@communication) %> |
+<%#= link_to 'Delete Communication', communication_path(@communication), method: delete, data: { confirm: "Are you sure?" } %> |
+<%= link_to 'Back', "/clients/#{@communication.client_id}" %>

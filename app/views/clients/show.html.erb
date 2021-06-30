@@ -44,5 +44,19 @@
   <%= Manager.find(@client.manager_id).name %>
 </p>
 
+<p>
+  <strong>Communications:</strong>
+  <ul>
+    <% @client.communications.each do |comm| %>
+    <li><%= comm.created_at %> | <%= link_to 'Show', communication_path(comm.id) %> 
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Add Communication:</strong>
+  <%= render 'communications/form', communication: @communication %>
+</p>
+
 <%= link_to 'Edit Client', edit_client_path(@client) %> |
 <%= link_to 'Back', "/managers/#{@client.manager_id}" %>

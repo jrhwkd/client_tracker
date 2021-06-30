@@ -1,24 +1,26 @@
-<%= form_with(model: communication) do |form| %>
-  <% if communication.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(communication.errors.count, "error") %> prohibited this communication from being saved:</h2>
+<%= form_with model: [ @client, @client.communications.build ] do |form| %>
+  <% if !communication.nil? %>
+    <% if communication.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(communication.errors.count, "error") %> prohibited this communication from being saved:</h2>
 
-      <ul>
-        <% communication.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+        <ul>
+          <% communication.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="field">
     <%= form.label :comment %>
-    <%= form.text_field :comment %>
+    <%= form.text_area :comment %>
   </div>
 
   <div class="field">
-    <%= form.label :client_id %>
-    <%= form.text_field :client_id %>
+    <%= form.label :manager %>
+    <%= form.text_field :manager %>
   </div>
 
   <div class="actions">
