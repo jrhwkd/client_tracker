@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_200413) do
+ActiveRecord::Schema.define(version: 2021_06_30_162412) do
+
+  create_table "client_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.string "company"
+    t.integer "sector_id", null: false
+    t.integer "manager_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_clients_on_manager_id"
+    t.index ["sector_id"], name: "index_clients_on_sector_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -38,6 +59,14 @@ ActiveRecord::Schema.define(version: 2021_06_10_200413) do
     t.index ["group_id"], name: "index_managers_on_group_id"
   end
 
+  create_table "sectors", force: :cascade do |t|
+    t.string "client_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "clients", "managers"
+  add_foreign_key "clients", "sectors"
   add_foreign_key "groups", "companies"
   add_foreign_key "managers", "companies"
   add_foreign_key "managers", "groups"
