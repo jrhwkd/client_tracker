@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  root "companies#index"
-=======
-  resources :clients
   resources :sectors
-  resources :managers
->>>>>>> rollback
   
   resources :clients
 
