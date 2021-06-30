@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :communications
   root "companies#index"
   
   resources :sectors
