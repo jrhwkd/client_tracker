@@ -27,16 +27,7 @@
     <li><%= client.first_name %> <%= client.last_name %> | <%= link_to 'Show', client_path %></li>
     <% end %>
   </ul>
-</p>  
-
-<p>
-  <strong>Clients:</strong>
-  <ul>
-    <% @manager.clients.each do |client| %>
-    <li><%= client.first_name %> <%= client.last_name %> | <%= link_to 'Show', client_path %></li>
-    <% end %>
-  </ul>
-</p>  
+</p>
 
 <%= link_to 'New Client', new_client_path %> |
 <%= link_to 'Edit Manager', edit_manager_path(@manager) %> |

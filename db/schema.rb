@@ -27,15 +27,6 @@ ActiveRecord::Schema.define(version: 2021_06_30_162412) do
     t.string "last_name"
     t.string "email"
     t.string "phone"
-<<<<<<< HEAD
-    t.string "company"
-    t.integer "clienttype_id", null: false
-    t.integer "manager_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["clienttype_id"], name: "index_clients_on_clienttype_id"
-    t.index ["manager_id"], name: "index_clients_on_manager_id"
-=======
     t.string "address"
     t.string "company"
     t.integer "sector_id", null: false
@@ -44,7 +35,6 @@ ActiveRecord::Schema.define(version: 2021_06_30_162412) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["manager_id"], name: "index_clients_on_manager_id"
     t.index ["sector_id"], name: "index_clients_on_sector_id"
->>>>>>> rollback
   end
 
   create_table "companies", force: :cascade do |t|
