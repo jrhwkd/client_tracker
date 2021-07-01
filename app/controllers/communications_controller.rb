@@ -1,5 +1,6 @@
 class CommunicationsController < ApplicationController
-  before_action :set_communication, only: %i[ show edit update destroy ]
+  before_action :set_communication, :set_client, only: %i[ show edit update destroy ]
+  # before_action :set_client, only: %i[ show edit update destroy ]
 
   # GET /communications or /communications.json
   def index
@@ -50,10 +51,9 @@ class CommunicationsController < ApplicationController
 
   # DELETE /communications/1 or /communications/1.json
   def destroy
-    @client = Client.find(params[:client_id])
     @communication.destroy
     respond_to do |format|
-      format.html { redirect_to communications_url, notice: "Communication was successfully destroyed." } # may need to change communications_url to client_url?
+      format.html { redirect_to client_path(@client), notice: "Communication was successfully destroyed." } 
       format.json { head :no_content }
     end
   end
@@ -62,6 +62,10 @@ class CommunicationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_communication
       @communication = Communication.find(params[:id])
+    end
+
+    def set_client
+      @client = Client.find(@communication.client_id)
     end
 
     # Only allow a list of trusted parameters through.

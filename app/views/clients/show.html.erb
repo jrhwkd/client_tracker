@@ -48,7 +48,8 @@
   <strong>Communications:</strong>
   <ul>
     <% @client.communications.each do |comm| %>
-    <li><%= comm.created_at %> | <%= link_to 'Show', communication_path(comm.id) %> 
+    <li><%= comm.created_at %> | <%= link_to 'Show', communication_path(comm.id) %>
+                               | <%= link_to 'Delete', communication_path(comm.id), method: :delete, data: { confirm: "Are you sure?" } %> 
     <% end %>
   </ul>
 </p>

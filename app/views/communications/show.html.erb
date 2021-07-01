@@ -16,5 +16,5 @@
 </p>
 
 <%= link_to 'Edit Communication', edit_communication_path(@communication) %> |
-<%#= link_to 'Delete Communication', communication_path(@communication), method: delete, data: { confirm: "Are you sure?" } %> |
+<%= link_to 'Delete Communication', communication_path(@communication), method: :delete, data: { confirm: "Are you sure?" } %> |
 <%= link_to 'Back', "/clients/#{@communication.client_id}" %>
