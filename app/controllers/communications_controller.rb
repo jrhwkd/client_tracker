@@ -1,6 +1,5 @@
 class CommunicationsController < ApplicationController
   before_action :set_communication, :set_client, only: %i[ show edit update destroy ]
-  # before_action :set_client, only: %i[ show edit update destroy ]
 
   # GET /communications or /communications.json
   def index
